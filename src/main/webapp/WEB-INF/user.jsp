@@ -4,24 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>首页</title>
+<title>用户</title>
 </head>
 <body>
-	<h1>用户首页${pageContext.request.contextPath}</h1>
-
+	<h1>hello world!经过servlet跳转之后的页面，表示是转发forward</h1>
 	<div>
-		<form action="${pageContext.request.contextPath}/servlet/user" method="post">
-			<div>
-				username:<input type="text" name="username" />
-			</div>
-			<div>
-				password:<input type="password" name="userPassword" />
-			</div>
-			<div>
-				<input type="submit" value="submit">
-			</div>
+		<div>requestScope:${requestScope }</div><br/>
+		<div>sessionScope:${sessionScope }</div><br/>
+		<div>applicationScope:${applicationScope }</div>
+		<div>username:${username}</div>
+		<div>password:${userPassword}</div>
 
-		</form>
 	</div>
+
+
 </body>
 </html>
