@@ -36,6 +36,8 @@ public class StudentServlet2 extends HttpServlet {
 
 		resp.getWriter().write(
 				"student servlet2注解下使用的context-param参数：" + getServletContext().getInitParameter(("context_param")));
+		resp.getWriter().write("<br/>"+
+				"listener使用的context-param参数：" + getServletContext().getInitParameter("param"));
 		resp.getWriter().write("</h1>");
 
 	}

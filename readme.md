@@ -17,7 +17,7 @@
    </context-param> 
    ```
 
-   **servlet3.0以后的版本，如何实现注解context-param配置，待研究：编码设置在servletContext里面**
+   **servlet3.0以后的版本，如何实现注解context-param配置，待研究；解决了，在listener里面，当监听到容器启动的时候，就进行参数的初始化**
 
    在servlet的init()方法中只可以通过this.getInitParameter("param1")取得：
 
@@ -45,3 +45,37 @@
 3. shared libraries and runtimes pluggability
 
    servlet容器启动时候，会扫描每个jar目录下META-INF下的services/javax.servlet.ServletContainerInitializer文件的ServletContextInitializer实现类
+
+   *1* 在类路径下，创建META-INF/services目录，然后创建javax.servlet.ServletContainerInitializer文件
+
+​       *2* 在javax.servlet.ServletContainerInitializer文件上写上启动扫描类
+
+      ```java
+com.xywei.sharedlib_runtimesplugg.CustomServletContainerInitializer
+      ```
+
+​	*3* 配置扫描类中需要扫描的类
+
+```java
+@HandlesTypes(value = { PersonService.class })
+public class CustomServletContainerInitializer implements ServletContainerInitializer {
+
+	/**
+	 * @param c
+	 *            感兴趣的类，handlerType中配置的子类，子接口或者实现类，本身类不扫描
+	 * @param ctx
+	 *            一个app对应一个servletContext
+	 */
+	@Override
+	public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
+		System.out.println("servletContextName>>>>>>>>" + ctx.getServletContextName());
+		System.out.println("ContextPath>>>>>>>>" + ctx.getContextPath());
+		for (Class<?> class1 : c) {
+			System.out.println("class>>>>>>>>>" + class1);
+		}
+	}
+
+}
+```
+
+4. **使用servletcontext注册三大组件，不硬编码**
