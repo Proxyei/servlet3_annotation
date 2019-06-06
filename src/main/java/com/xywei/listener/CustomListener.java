@@ -17,6 +17,7 @@ public class CustomListener implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
+		//TODO 好像没销毁到!
 		System.out.println(">>>>>>>>>>>>>>>>硬编码的listener销毁了<<<<<<<<<<<<<<<<<<<<<<<<");
 
 	}

@@ -1,1 +1,2 @@
 com.xywei.sharedlib_runtimesplugg.CustomServletContainerInitializer
+com.xywei.servletcontext.MyServletContainerInitializer
