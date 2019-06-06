@@ -41,3 +41,7 @@
    ```
    
    
+
+3. shared libraries and runtimes pluggability
+
+   servlet容器启动时候，会扫描每个jar目录下META-INF下的services/javax.servlet.ServletContainerInitializer文件的ServletContextInitializer实现类
