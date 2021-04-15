@@ -23,15 +23,15 @@ public class UserServlet2 extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>user2 start");
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>注解实现的servlet3.0");
-		System.out.println("username>>>>>>>>>>>>：" + req.getParameter("username"));
-		System.out.println("userPassword>>>>>>>>>>>>" + req.getParameter("userPassword"));
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>user2 end");
+		System.out.println(this.getClass()+">>>>>>>>>>>>>>>>>>>>>user2 start");
+		System.out.println(this.getClass()+">>>>>>>>>>>>>>>>>>>>>注解实现的servlet3.0");
+		System.out.println(this.getClass()+"username>>>>>>>>>>>>：" + req.getParameter("username"));
+		System.out.println(this.getClass()+"userPassword>>>>>>>>>>>>" + req.getParameter("userPassword"));
+		System.out.println(this.getClass()+">>>>>>>>>>>>>>>>>>>>>user2 end");
 		req.setAttribute("username", req.getParameter("username"));
 		req.setAttribute("userPassword", req.getParameter("userPassword"));
-		System.out.println(">>>>>>>>>>>>>>>>>>>>getAttribute：" + req.getAttribute("username"));
-		System.out.println(">>>>>>>>>>>>>>>>>>>>getAttribute：" + req.getAttribute("userPassword"));
+		System.out.println(this.getClass()+">>>>>>>>>>>>>>>>>>>>getAttribute：" + req.getAttribute("username"));
+		System.out.println(this.getClass()+">>>>>>>>>>>>>>>>>>>>getAttribute：" + req.getAttribute("userPassword"));
 		req.getRequestDispatcher("/WEB-INF/user.jsp").forward(req, resp);
 	}
 }

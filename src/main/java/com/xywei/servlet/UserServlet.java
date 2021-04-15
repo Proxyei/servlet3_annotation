@@ -26,13 +26,13 @@ public class UserServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>注解实现的servlet3.0");
-		System.out.println("username>>>>>>>>>>>>：" + req.getParameter("username"));
-		System.out.println("userPassword>>>>>>>>>>>>" + req.getParameter("userPassword"));
+		System.out.println(this.getClass()+">>>>>>>>>>>>>>>>>>>>>注解实现的servlet3.0");
+		System.out.println(this.getClass()+"username>>>>>>>>>>>>：" + req.getParameter("username"));
+		System.out.println(this.getClass()+"userPassword>>>>>>>>>>>>" + req.getParameter("userPassword"));
 		// 转发
-		// req.getRequestDispatcher("/servlet/user2").forward(req, resp);
+		 req.getRequestDispatcher("/servlet/user2").forward(req, resp);
 		// 重定向
-		 resp.sendRedirect("user2");
+//		 resp.sendRedirect("user2");
 	}
 
 }

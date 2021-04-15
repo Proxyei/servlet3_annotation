@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HandlesTypes;
 
+//Spring4基础
 @HandlesTypes(value = { PersonService.class })
 public class CustomServletContainerInitializer implements ServletContainerInitializer {
 
@@ -18,10 +19,10 @@ public class CustomServletContainerInitializer implements ServletContainerInitia
 	 */
 	@Override
 	public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
-		System.out.println("servletContextName>>>>>>>>" + ctx.getServletContextName());
-		System.out.println("ContextPath>>>>>>>>" + ctx.getContextPath());
+		System.out.println(this.getClass()+"@HandlesTypes CustomServletContainerInitializer ServletContextName>>>>>>>>" + ctx.getServletContextName());
+		System.out.println(this.getClass()+"@HandlesTypes CustomServletContainerInitializer  ContextPath>>>>>>>>" + ctx.getContextPath());
 		for (Class<?> class1 : c) {
-			System.out.println("class>>>>>>>>>" + class1);
+			System.out.println(this.getClass()+"@HandlesTypes CustomServletContainerInitializer 容器启动时候，感兴趣的class>>>>>>>>>" + class1);
 		}
 	}
 

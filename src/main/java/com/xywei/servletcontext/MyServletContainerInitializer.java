@@ -20,9 +20,9 @@ public class MyServletContainerInitializer implements ServletContainerInitialize
 	 */
 	@Override
 	public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
-		System.out.println("MyServletContainerInitializer servletContextName>>>>>>>>>>>>>>" + ctx.getContextPath());
+		System.out.println(this.getClass()+"编程式注册-MyServletContainerInitializer servletContextName>>>>>>>>>>>>>>" + ctx.getContextPath());
 		// 动态注册三大组件
-		System.out.println("开始动态注册三大组件");
+		System.out.println(this.getClass()+"编程式注册-开始动态注册三大组件");
 
 		// 注册filter
 		FilterRegistration.Dynamic filter = ctx.addFilter("myFilter", MyFilter.class);

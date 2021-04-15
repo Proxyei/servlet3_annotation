@@ -7,12 +7,12 @@ public class MyListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("动态注册组件>>>>>>>>>>>>>>>>>>>>listener initial");
+		System.out.println(this.getClass()+"编程式注册-动态注册组件>>>>>>>>>>>>>>>>>>>>listener initial");
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("动态注册组件>>>>>>>>>>>>>>>>>>>>listener end ");
+		System.out.println(this.getClass()+"动态注册组件>>>>>>>>>>>>>>>>>>>>listener end ");
 
 	}
 
